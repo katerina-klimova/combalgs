@@ -14,6 +14,13 @@ namespace combinatorFirstRest
         [STAThread]
         static void Main()
         {
+
+            /*int[] perm = Perm.getFirstPerm(3);
+            Console.WriteLine(String.Join(",", perm));
+            while(Perm.getNextPerm(ref perm) == true)
+            {
+                Console.WriteLine(String.Join(",", perm));
+            }*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RestForm());
