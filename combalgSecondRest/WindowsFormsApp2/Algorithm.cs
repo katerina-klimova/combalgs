@@ -11,81 +11,54 @@ namespace WindowsFormsApp2
         private int[] listCoins;//номиналы монет
         int rest = 0; //сумма сдачи
         int[] cashBox; //количество всех монет каждого номинала
-        int[] data;
-        List<int[]> result;
+        int result;
 
         public Algorithm(int[] _listCoins, int _rest, int[] _cashBox)
         {
             listCoins = _listCoins;
             rest = _rest;
             cashBox = _cashBox;
-            result = new List<int[]>();
+            result = 0;
         }
 
-        private bool isContains(List<int[]> input, int [] arr)
+        private int countVariants(int _rest, int lev)
         {
-            foreach(int[] member in input)
+            int result;
+            int tmp = 0;
+            if ((_rest < 0) || (lev >= 7))
             {
-                if (member.SequenceEqual(arr)) return true;
-            }
-            return false;
-        }
-
-        private void recRest(int k, int[] coins, int curSum)
-        {
-
-            if ((rest == curSum) && (k==0) )
-            {
-                int[] list = new int[listCoins.Length];
-                for(int index = 0; index < coins.Length; index++)
+                if (_rest == 0)
                 {
-                    list[index] = coins[index];
+                      tmp = 1;
                 }
-                if(!isContains(result,list))
-                    result.Add(list);
-                return;
+
             }
-            if (k > 0)
+            else
             {
-                for (int i = 0; i <listCoins.Length ; i++)
-                {
-                    if (coins[i] < cashBox[i])
+                if (cashBox[lev] == 0)
+                    tmp = countVariants(_rest, lev + 1);
+                else
+                    for (int i = 0; i <= cashBox[lev]; i++)
                     {
-                        coins[i]++;
-                        recRest(k - 1, coins, curSum + listCoins[i]);
-                        coins[i]--;
+
+                        int newRest = _rest - listCoins[lev] * i;
+                        tmp = tmp + countVariants(newRest, lev + 1);
                     }
-                }
             }
+            return result = tmp;
         }
-
-
-        public List<int[]> restCoins()
+        public int restCoins()
         {
             int sellerCoinsCnt = 0;
             for (int j = 0; j < cashBox.Length; j++)
             {
                 sellerCoinsCnt += cashBox[j];
             }
-            data = new int[sellerCoinsCnt];
-            int k = 0;
-            for (int i = 0; i < cashBox.Length; i++)
+            if (sellerCoinsCnt != 0) 
             {
-                for (int j = 0; j < cashBox[i]; j++)
-                {
-                    data[k] = listCoins[i];
-                    k++;
-                }
+                result = countVariants(rest,0);
             }
 
-            int size_results = 1;
-            while (size_results<= sellerCoinsCnt)
-            {
-                int[] list = new int[listCoins.Length];
-                recRest(size_results, list, 0);
-                size_results++;
-            }
-            
             return result;
         }
     }

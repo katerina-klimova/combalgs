@@ -36,7 +36,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.num1 = new System.Windows.Forms.NumericUpDown();
             this.num5 = new System.Windows.Forms.NumericUpDown();
@@ -45,16 +44,13 @@
             this.num100 = new System.Windows.Forms.NumericUpDown();
             this.num200 = new System.Windows.Forms.NumericUpDown();
             this.num500 = new System.Windows.Forms.NumericUpDown();
-            this.num1000 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbRest = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtMoney = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.lbRests = new System.Windows.Forms.ListBox();
             this.lbVarsCnt = new System.Windows.Forms.Label();
+            this.numRub = new System.Windows.Forms.NumericUpDown();
+            this.numCop = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.num1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num10)).BeginInit();
@@ -62,7 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.num100)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num200)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num500)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num1000)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCop)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDo
@@ -138,15 +135,6 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "5 рублей";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(58, 479);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "10 рублей";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -220,59 +208,23 @@
             0,
             0});
             // 
-            // num1000
-            // 
-            this.num1000.Location = new System.Drawing.Point(210, 472);
-            this.num1000.Name = "num1000";
-            this.num1000.Size = new System.Drawing.Size(72, 20);
-            this.num1000.TabIndex = 17;
-            this.num1000.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(62, 551);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Цена";
+            this.label10.Text = "Рублей";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(230, 551);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(106, 13);
+            this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 19;
-            this.label11.Text = "Деньги покупателя";
-            // 
-            // lbRest
-            // 
-            this.lbRest.AutoSize = true;
-            this.lbRest.Location = new System.Drawing.Point(405, 551);
-            this.lbRest.Name = "lbRest";
-            this.lbRest.Size = new System.Drawing.Size(0, 13);
-            this.lbRest.TabIndex = 20;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(61, 588);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtPrice.TabIndex = 21;
-            this.txtPrice.Text = "20";
-            // 
-            // txtMoney
-            // 
-            this.txtMoney.Location = new System.Drawing.Point(233, 588);
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(100, 20);
-            this.txtMoney.TabIndex = 22;
-            this.txtMoney.Text = "30";
+            this.label11.Text = "Копеек:";
             // 
             // btnExit
             // 
@@ -287,43 +239,57 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(62, 715);
+            this.label13.Location = new System.Drawing.Point(58, 502);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(336, 13);
+            this.label13.Size = new System.Drawing.Size(76, 13);
             this.label13.TabIndex = 24;
-            this.label13.Text = "Подсказка: для ввода копеек используйте разделение запятой!";
-            // 
-            // lbRests
-            // 
-            this.lbRests.FormattingEnabled = true;
-            this.lbRests.Location = new System.Drawing.Point(459, 85);
-            this.lbRests.Name = "lbRests";
-            this.lbRests.Size = new System.Drawing.Size(453, 407);
-            this.lbRests.TabIndex = 25;
+            this.label13.Text = "Сумма сдачи:";
             // 
             // lbVarsCnt
             // 
             this.lbVarsCnt.AutoSize = true;
-            this.lbVarsCnt.Location = new System.Drawing.Point(575, 551);
+            this.lbVarsCnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbVarsCnt.Location = new System.Drawing.Point(230, 502);
             this.lbVarsCnt.Name = "lbVarsCnt";
-            this.lbVarsCnt.Size = new System.Drawing.Size(0, 13);
+            this.lbVarsCnt.Size = new System.Drawing.Size(0, 20);
             this.lbVarsCnt.TabIndex = 26;
+            // 
+            // numRub
+            // 
+            this.numRub.Location = new System.Drawing.Point(61, 595);
+            this.numRub.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numRub.Name = "numRub";
+            this.numRub.Size = new System.Drawing.Size(100, 20);
+            this.numRub.TabIndex = 27;
+            // 
+            // numCop
+            // 
+            this.numCop.Location = new System.Drawing.Point(233, 595);
+            this.numCop.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numCop.Name = "numCop";
+            this.numCop.Size = new System.Drawing.Size(100, 20);
+            this.numCop.TabIndex = 28;
             // 
             // SecondRestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 751);
+            this.ClientSize = new System.Drawing.Size(509, 720);
+            this.Controls.Add(this.numCop);
+            this.Controls.Add(this.numRub);
             this.Controls.Add(this.lbVarsCnt);
-            this.Controls.Add(this.lbRests);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtMoney);
-            this.Controls.Add(this.txtPrice);
-            this.Controls.Add(this.lbRest);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.num1000);
             this.Controls.Add(this.num500);
             this.Controls.Add(this.num200);
             this.Controls.Add(this.num100);
@@ -332,7 +298,6 @@
             this.Controls.Add(this.num5);
             this.Controls.Add(this.num1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -350,7 +315,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.num100)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num200)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num500)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num1000)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +332,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown num1;
         private System.Windows.Forms.NumericUpDown num5;
@@ -375,16 +340,13 @@
         private System.Windows.Forms.NumericUpDown num100;
         private System.Windows.Forms.NumericUpDown num200;
         private System.Windows.Forms.NumericUpDown num500;
-        private System.Windows.Forms.NumericUpDown num1000;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lbRest;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ListBox lbRests;
         private System.Windows.Forms.Label lbVarsCnt;
+        private System.Windows.Forms.NumericUpDown numRub;
+        private System.Windows.Forms.NumericUpDown numCop;
     }
 }
 
