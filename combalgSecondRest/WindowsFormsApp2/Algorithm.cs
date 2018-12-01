@@ -8,58 +8,27 @@ namespace WindowsFormsApp2
 {
     class Algorithm
     {
-        private int[] listCoins;//номиналы монет
-        int rest = 0; //сумма сдачи
-        int[] cashBox; //количество всех монет каждого номинала
-        int result;
-
-        public Algorithm(int[] _listCoins, int _rest, int[] _cashBox)
+        public static int countOfWays(int[] coins, int[] counts, int idx,  int sum)
         {
-            listCoins = _listCoins;
-            rest = _rest;
-            cashBox = _cashBox;
-            result = 0;
-        }
+            if (sum == 0)
+                return 1;
 
-        private int countVariants(int _rest, int lev)
-        {
-            int result;
-            int tmp = 0;
-            if ((_rest < 0) || (lev >= 7))
-            {
-                if (_rest == 0)
-                {
-                      tmp = 1;
-                }
+            if (sum < 0)
+                return 0;
 
-            }
-            else
-            {
-                if (cashBox[lev] == 0)
-                    tmp = countVariants(_rest, lev + 1);
-                else
-                    for (int i = 0; i <= cashBox[lev]; i++)
-                    {
+            if (idx <= 0 && sum >= 1)
+                return 0;
 
-                        int newRest = _rest - listCoins[lev] * i;
-                        tmp = tmp + countVariants(newRest, lev + 1);
-                    }
-            }
-            return result = tmp;
-        }
-        public int restCoins()
-        {
-            int sellerCoinsCnt = 0;
-            for (int j = 0; j < cashBox.Length; j++)
+            int include = 0;
+            if (counts[idx - 1] > 0)
             {
-                sellerCoinsCnt += cashBox[j];
+                counts[idx - 1]--;
+                include = countOfWays(coins, counts, idx, sum - coins[idx - 1]);
+                counts[idx - 1]++;
             }
-            if (sellerCoinsCnt != 0) 
-            {
-                result = countVariants(rest,0);
-            }
+            int exclude = countOfWays(coins, counts, idx - 1, sum);
 
-            return result;
+            return include + exclude;
         }
     }
 }

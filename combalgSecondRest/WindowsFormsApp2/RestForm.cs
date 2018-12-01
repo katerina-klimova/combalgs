@@ -25,6 +25,13 @@ namespace WindowsFormsApp2
         public SecondRestForm()
         {
             InitializeComponent();
+            num1.Maximum = Decimal.MaxValue;
+            num5.Maximum = Decimal.MaxValue;
+            num10.Maximum = Decimal.MaxValue;
+            num50.Maximum = Decimal.MaxValue;
+            num100.Maximum = Decimal.MaxValue;
+            num200.Maximum = Decimal.MaxValue;
+            num500.Maximum = Decimal.MaxValue;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -63,8 +70,7 @@ namespace WindowsFormsApp2
             }
             if (restC > 0)
             {
-                Algorithm alg = new Algorithm(listCoins, restC, cashBox);
-                int variants = alg.restCoins();
+                int variants = Algorithm.countOfWays(listCoins,cashBox,7,restC);
                 if (variants == 0)
                 {
                     MessageBox.Show("Невозможно дать сдачу!");
@@ -72,7 +78,10 @@ namespace WindowsFormsApp2
                 else
                     MessageBox.Show("Всего вариантов дать сдачу: " + variants.ToString());
             }
+            else
+                MessageBox.Show("Сдачи нет!");
 
         }
+        
     }
 }
