@@ -13,27 +13,34 @@ namespace thirdCombSubSet
         public  int[] exact(int[] set)
         {
             int[] result = new int[set.Length];
-            rec(set, result, 0, 0);
+            HashSet<int> indexes = new HashSet<int>();
+            rec(set, 0, 0, indexes);
             return answer;
         }
-
-        public bool rec(int [] set, int[] result, int k,int sum)
+        
+        public bool rec(int[] set,  int k, int sum, HashSet<int> indexes)
         {
-            for(int i = k; (i < set.Length)&&!detected;i++)
+            for (int i = 0; (i < set.Length) && !detected && (k < set.Length); i++)
             {
-                result[k] = set[i];
-                if (sum + result[k] == 0)
+                if (!indexes.Contains(i))
                 {
-                    answer = new int[k + 1];
-                    Array.Copy(result, answer,k+1);
-                   return true;
+                    indexes.Add(i);
+                    if (sum + set[i] == 0)
+                    {
+                        int j = 0;
+                        answer = new int[k + 1];
+                        foreach(int el in indexes){
+                            answer[j] = set[el];
+                            j++;
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        detected = rec(set, k + 1, sum +set[i], indexes);
+                        indexes.Remove(i);
+                    }
                 }
-                else
-                {
-                    detected = rec(set, result, k+1, sum + result[i]);
-                    result[i] = 0;
-                }
-                   
             }
             return detected;
         }

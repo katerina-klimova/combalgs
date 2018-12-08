@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace thirdCombSubSet
@@ -34,7 +35,7 @@ namespace thirdCombSubSet
 
         private void btnDo_Click(object sender, EventArgs e)
         {
-            tbExact.Clear();
+            clearAll();
             int cnt = lbSet.Items.Count;
             int[] items = new int[cnt];
             for(int i = 0; i < cnt; i++)
@@ -43,18 +44,42 @@ namespace thirdCombSubSet
             }
 
             Algorithm alg = new Algorithm();
+
+            //long curTimeEx = 0;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             int[] resEx = alg.exact(items);
+
+            stopWatch.Stop();
+            long curTimeEx = stopWatch.ElapsedTicks;
+            
             if (resEx != null)
             {
                 foreach (int el in resEx)
                 {
                     tbExact.AppendText(el + " ");
                 }
+                tbTimeEx.Text = ((double)curTimeEx/10000).ToString();
             }
             else
             {
                 tbExact.AppendText("Решения не существует!");
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearAll();
+            lbSet.Items.Clear();
+        }
+
+        private void clearAll()
+        {
+            tbExact.Clear();
+            tbTimeEx.Clear();
+            tbTimeGen.Clear();
+            tbGen.Clear();
         }
     }
 }
