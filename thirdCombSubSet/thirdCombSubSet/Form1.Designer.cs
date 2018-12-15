@@ -228,6 +228,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudElem);
             this.Name = "FormSet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Задача о сумме элементов подмножества";
             ((System.ComponentModel.ISupportInitialize)(this.nudElem)).EndInit();
             this.ResumeLayout(false);

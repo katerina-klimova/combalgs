@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace thirdCombSubSet
 {
-    class Algorithm
+    class ExactAlgorithm
     {
         bool detected = false;
         int[] answer;
-        public  int[] exact(int[] set)
+        private Stopwatch stopWatch ;
+        private long curTimeEx;
+        public long getWorkTime()
         {
+            return curTimeEx;
+        }
+
+        public  int[] run(int[] set)
+        {
+            stopWatch = new Stopwatch();
+            stopWatch.Start();
             int[] result = new int[set.Length];
             HashSet<int> indexes = new HashSet<int>();
             rec(set, 0, 0, indexes);
+            stopWatch.Stop();
+            curTimeEx = stopWatch.ElapsedTicks;
             return answer;
         }
         
-        public bool rec(int[] set,  int k, int sum, HashSet<int> indexes)
+        private bool rec(int[] set,  int k, int sum, HashSet<int> indexes)
         {
             for (int i = 0; (i < set.Length) && !detected && (k < set.Length); i++)
             {
@@ -44,5 +53,6 @@ namespace thirdCombSubSet
             }
             return detected;
         }
+        
     }
 }

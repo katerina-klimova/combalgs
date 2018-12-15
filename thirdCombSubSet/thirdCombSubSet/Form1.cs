@@ -13,6 +13,7 @@ namespace thirdCombSubSet
 {
     public partial class FormSet : Form
     {
+        
         public FormSet()
         {
             InitializeComponent();
@@ -43,29 +44,14 @@ namespace thirdCombSubSet
                 items[i] = Convert.ToInt32(lbSet.Items[i]);
             }
 
-            Algorithm alg = new Algorithm();
+            ExactAlgorithm exactAlg = new ExactAlgorithm();
+            GeneticAlgorithm geneticAlg = new GeneticAlgorithm(4,items,5,1);
 
-            //long curTimeEx = 0;
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            int[] resEx = exactAlg.run(items);
+           int[] resGen = geneticAlg.run(5);
 
-            int[] resEx = alg.exact(items);
-
-            stopWatch.Stop();
-            long curTimeEx = stopWatch.ElapsedTicks;
-            
-            if (resEx != null)
-            {
-                foreach (int el in resEx)
-                {
-                    tbExact.AppendText(el + " ");
-                }
-                tbTimeEx.Text = ((double)curTimeEx/10000).ToString();
-            }
-            else
-            {
-                tbExact.AppendText("Решения не существует!");
-            }
+            output(tbExact, tbTimeEx, resEx, exactAlg.getWorkTime());
+            output(tbGen, tbTimeGen, resGen, geneticAlg.getWorkTime());
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -80,6 +66,22 @@ namespace thirdCombSubSet
             tbTimeEx.Clear();
             tbTimeGen.Clear();
             tbGen.Clear();
+        }
+
+        private void output(TextBox tb,TextBox tbTime, int[] res, long time)
+        {
+            if (res != null)
+            {
+                foreach (int el in res)
+                {
+                    tb.AppendText(el + " ");
+                }
+                tbTime.Text = ((double)time / 100000).ToString();
+            }
+            else
+            {
+                tb.AppendText("Решения не существует!");
+            }
         }
     }
 }
