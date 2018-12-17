@@ -18,6 +18,7 @@ namespace thirdCombSubSet
         private int[] items;
         private int mutationPercent;
         private int mutationCount;
+        private int cntParentChromes;
 
         bool detected = false;
         int[] answer;
@@ -30,13 +31,14 @@ namespace thirdCombSubSet
             return curTimeGen;
         }
 
-        public GeneticAlgorithm(int _numOfChrom, int[] _items, int _mutPercent, int _mutCnt)
+        public GeneticAlgorithm(int _numOfChrom, int[] _items, int _mutPercent, int _mutCnt, int _cntParentChromes)
         {
             r = new Random();
             numOfChromosomes = _numOfChrom;
             items = _items;
             mutationPercent = _mutPercent;
             mutationCount = _mutCnt;
+            cntParentChromes = _cntParentChromes;
             logger = new Logger("log.txt");
         }
 
@@ -112,11 +114,11 @@ namespace thirdCombSubSet
             }
 
             /*Воспроизводство.*/
-            for (int i = 0; i < numOfChromosomes / 2; i++)
+            for (int i = 0; i <cntParentChromes; i++)
             {
                 newGeneration.Add(curGen[choosed(ver)]);
             }
-            for(int i = (numOfChromosomes /2) ; (i < numOfChromosomes-1) && newGeneration.Count<curGen.Count; i++)
+            for(int i = (cntParentChromes) ; (i < numOfChromosomes-1) && newGeneration.Count<curGen.Count; i++)
             {
                 Chromosome newChild_1 = selection(newGeneration[i-(numOfChromosomes / 2)], newGeneration[i - (numOfChromosomes / 2)+1]);
                 Chromosome newChild_2 = selection(newGeneration[i - (numOfChromosomes / 2)+1], newGeneration[i - (numOfChromosomes / 2) ]);

@@ -44,7 +44,24 @@
             this.tbTimeGen = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.nudSteps = new System.Windows.Forms.NumericUpDown();
+            this.nudMutation = new System.Windows.Forms.NumericUpDown();
+            this.nudChrom = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nudMutCnt = new System.Windows.Forms.NumericUpDown();
+            this.nudParentChrom = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudElem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSteps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMutation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudChrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMutCnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudParentChrom)).BeginInit();
             this.SuspendLayout();
             // 
             // nudElem
@@ -100,9 +117,9 @@
             "2",
             "-1",
             "4"});
-            this.lbSet.Location = new System.Drawing.Point(44, 130);
+            this.lbSet.Location = new System.Drawing.Point(44, 135);
             this.lbSet.Name = "lbSet";
-            this.lbSet.Size = new System.Drawing.Size(148, 251);
+            this.lbSet.Size = new System.Drawing.Size(148, 264);
             this.lbSet.TabIndex = 4;
             // 
             // btnDo
@@ -117,7 +134,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(218, 339);
+            this.btnClose.Location = new System.Drawing.Point(218, 357);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(91, 42);
             this.btnClose.TabIndex = 6;
@@ -137,7 +154,7 @@
             // 
             // tbExact
             // 
-            this.tbExact.Location = new System.Drawing.Point(367, 130);
+            this.tbExact.Location = new System.Drawing.Point(579, 130);
             this.tbExact.Multiline = true;
             this.tbExact.Name = "tbExact";
             this.tbExact.ReadOnly = true;
@@ -147,7 +164,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(364, 99);
+            this.label3.Location = new System.Drawing.Point(576, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 13);
             this.label3.TabIndex = 9;
@@ -156,7 +173,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(364, 264);
+            this.label4.Location = new System.Drawing.Point(576, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(189, 13);
             this.label4.TabIndex = 10;
@@ -164,7 +181,7 @@
             // 
             // tbGen
             // 
-            this.tbGen.Location = new System.Drawing.Point(367, 291);
+            this.tbGen.Location = new System.Drawing.Point(579, 291);
             this.tbGen.Multiline = true;
             this.tbGen.Name = "tbGen";
             this.tbGen.ReadOnly = true;
@@ -173,7 +190,7 @@
             // 
             // tbTimeEx
             // 
-            this.tbTimeEx.Location = new System.Drawing.Point(661, 163);
+            this.tbTimeEx.Location = new System.Drawing.Point(873, 163);
             this.tbTimeEx.Name = "tbTimeEx";
             this.tbTimeEx.ReadOnly = true;
             this.tbTimeEx.Size = new System.Drawing.Size(100, 20);
@@ -181,7 +198,7 @@
             // 
             // tbTimeGen
             // 
-            this.tbTimeGen.Location = new System.Drawing.Point(661, 329);
+            this.tbTimeGen.Location = new System.Drawing.Point(873, 329);
             this.tbTimeGen.Name = "tbTimeGen";
             this.tbTimeGen.ReadOnly = true;
             this.tbTimeGen.Size = new System.Drawing.Size(100, 20);
@@ -190,7 +207,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(658, 99);
+            this.label5.Location = new System.Drawing.Point(870, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 14;
@@ -206,11 +223,171 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // nudSteps
+            // 
+            this.nudSteps.Location = new System.Drawing.Point(340, 148);
+            this.nudSteps.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudSteps.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudSteps.Name = "nudSteps";
+            this.nudSteps.Size = new System.Drawing.Size(117, 20);
+            this.nudSteps.TabIndex = 16;
+            this.nudSteps.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudMutation
+            // 
+            this.nudMutation.Location = new System.Drawing.Point(341, 206);
+            this.nudMutation.Name = "nudMutation";
+            this.nudMutation.Size = new System.Drawing.Size(120, 20);
+            this.nudMutation.TabIndex = 17;
+            this.nudMutation.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudChrom
+            // 
+            this.nudChrom.Location = new System.Drawing.Point(337, 311);
+            this.nudChrom.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudChrom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudChrom.Name = "nudChrom";
+            this.nudChrom.Size = new System.Drawing.Size(120, 20);
+            this.nudChrom.TabIndex = 18;
+            this.nudChrom.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(337, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(182, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Максимальное количество шагов ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(341, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Вероятность мутации:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(337, 351);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(183, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Количество отобранных хромосом";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(337, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "генетического алгоритма:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(337, 362);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "в каждом поколении:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(341, 244);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(189, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Количество мутирующих хромосом:";
+            // 
+            // nudMutCnt
+            // 
+            this.nudMutCnt.Location = new System.Drawing.Point(341, 262);
+            this.nudMutCnt.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudMutCnt.Name = "nudMutCnt";
+            this.nudMutCnt.Size = new System.Drawing.Size(120, 20);
+            this.nudMutCnt.TabIndex = 25;
+            this.nudMutCnt.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // nudParentChrom
+            // 
+            this.nudParentChrom.Location = new System.Drawing.Point(337, 379);
+            this.nudParentChrom.Name = "nudParentChrom";
+            this.nudParentChrom.Size = new System.Drawing.Size(120, 20);
+            this.nudParentChrom.TabIndex = 26;
+            this.nudParentChrom.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(337, 295);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Количество хромосом:";
+            // 
             // FormSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 434);
+            this.ClientSize = new System.Drawing.Size(1034, 434);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.nudParentChrom);
+            this.Controls.Add(this.nudMutCnt);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.nudChrom);
+            this.Controls.Add(this.nudMutation);
+            this.Controls.Add(this.nudSteps);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbTimeGen);
@@ -231,6 +408,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Задача о сумме элементов подмножества";
             ((System.ComponentModel.ISupportInitialize)(this.nudElem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSteps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMutation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudChrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMutCnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudParentChrom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,6 +436,18 @@
         private System.Windows.Forms.TextBox tbTimeGen;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.NumericUpDown nudSteps;
+        private System.Windows.Forms.NumericUpDown nudMutation;
+        private System.Windows.Forms.NumericUpDown nudChrom;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown nudMutCnt;
+        private System.Windows.Forms.NumericUpDown nudParentChrom;
+        private System.Windows.Forms.Label label12;
     }
 }
 

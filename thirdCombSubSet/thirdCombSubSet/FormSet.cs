@@ -43,12 +43,18 @@ namespace thirdCombSubSet
             {
                 items[i] = Convert.ToInt32(lbSet.Items[i]);
             }
+            
+            int munCnt = (int)nudMutCnt.Value;
+            if (munCnt > items.Length - 1) munCnt = 1;
+            int cntParChoms = (int)nudParentChrom.Value;
+            int cntChoms = (int)nudChrom.Value;
+            if (cntParChoms >= cntChoms) cntParChoms = cntChoms/2;
 
             ExactAlgorithm exactAlg = new ExactAlgorithm();
-            GeneticAlgorithm geneticAlg = new GeneticAlgorithm(4,items,5,1);
+            GeneticAlgorithm geneticAlg = new GeneticAlgorithm(cntChoms, items, (int)nudMutation.Value, munCnt,cntParChoms);
 
             int[] resEx = exactAlg.run(items);
-           int[] resGen = geneticAlg.run(5);
+            int[] resGen = geneticAlg.run((int)nudSteps.Value);
 
             output(tbExact, tbTimeEx, resEx, exactAlg.getWorkTime());
             output(tbGen, tbTimeGen, resGen, geneticAlg.getWorkTime());
@@ -83,5 +89,6 @@ namespace thirdCombSubSet
                 tb.AppendText("Решения не существует!");
             }
         }
+        
     }
 }
