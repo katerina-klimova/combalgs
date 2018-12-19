@@ -28,14 +28,32 @@ namespace thirdCombSubSet
         public Chromosome(Chromosome f, Chromosome m, Random _r)
         {
             r = _r;
+            int a, b;
+            do
+            {
+                a = r.Next(0, f.size);
+                b = r.Next(0, f.size);
+
+            } while (a == b);
+            if(a>b)
+            {
+                int c = a;
+                a = b;
+                b = c;
+            }
+           
             code = new int[f.size];
-            for (int i = 0; i < f.size; i+=2)
+            for (int i = 0; i < a; i++)
             {
                 code[i] =f.get(i) ;
             }
-            for (int i = 1; i < f.size; i += 2)
+            for (int i = a; i <b; i ++)
             {
                 code[i] =  m.get(i);
+            }
+            for (int i =b; i < size; i ++)
+            {
+                code[i] = f.get(i);
             }
 
         }

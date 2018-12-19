@@ -49,20 +49,24 @@ namespace thirdCombSubSet
             logger.log("Запуск алгоритма!");
             setFirstGeneration();
             logger.log("Первое поколение: \n" + toString(firstGeneraion));
-            if (checkAll(firstGeneraion)) detected = true;
+            if (checkAll(firstGeneraion)) {
+                detected = true;
+               // return answer;
+            }
+            
             sortPopulation(firstGeneraion);
             currentGeneraion = firstGeneraion;
             int step = 2;
-            do
+            while (!detected && (step <= steps)) 
             {
                 /*Cледующее поколение.*/
                 getNextGeneration(currentGeneraion,step);
-                logger.log("Поколение:"+ step +"после мутации \n" + toString(currentGeneraion));
+                logger.log("Поколение:"+ step +"после мутации \n" + toString(currentGeneraion)+Environment.NewLine);
                 if (checkAll(currentGeneraion)) detected = true;
                 sortPopulation(firstGeneraion);
                 step++;
 
-            } while (!detected||(step<=steps));
+            } 
           
             stopWatch.Stop();
             curTimeGen = stopWatch.ElapsedTicks;
@@ -185,13 +189,13 @@ namespace thirdCombSubSet
             foreach(Chromosome ch in chs)
             {
                 int[] arr = ch.toArray(items);
-                s += "{";
+                s += "   { ";
                 for(int i = 0; i < arr.Length ;i++)
                 {
                     s += arr[i] + " ";
                 }
 
-                s += "}   ";
+                s += " }   ";
             }
             return s;
         }

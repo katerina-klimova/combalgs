@@ -56,12 +56,18 @@
             this.nudMutCnt = new System.Windows.Forms.NumericUpDown();
             this.nudParentChrom = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnGenSolve = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.nudItems = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudElem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSteps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMutation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMutCnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudParentChrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudItems)).BeginInit();
             this.SuspendLayout();
             // 
             // nudElem
@@ -124,11 +130,11 @@
             // 
             // btnDo
             // 
-            this.btnDo.Location = new System.Drawing.Point(218, 130);
+            this.btnDo.Location = new System.Drawing.Point(873, 173);
             this.btnDo.Name = "btnDo";
-            this.btnDo.Size = new System.Drawing.Size(91, 53);
+            this.btnDo.Size = new System.Drawing.Size(98, 53);
             this.btnDo.TabIndex = 5;
-            this.btnDo.Text = "Посчитать решение";
+            this.btnDo.Text = "Решить точным алгоритмом";
             this.btnDo.UseVisualStyleBackColor = true;
             this.btnDo.Click += new System.EventHandler(this.btnDo_Click);
             // 
@@ -136,7 +142,7 @@
             // 
             this.btnClose.Location = new System.Drawing.Point(218, 357);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(91, 42);
+            this.btnClose.Size = new System.Drawing.Size(102, 42);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Выйти";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -144,9 +150,9 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(218, 189);
+            this.btnDel.Location = new System.Drawing.Point(218, 244);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(91, 37);
+            this.btnDel.Size = new System.Drawing.Size(102, 37);
             this.btnDel.TabIndex = 7;
             this.btnDel.Text = "Удалить";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -190,7 +196,7 @@
             // 
             // tbTimeEx
             // 
-            this.tbTimeEx.Location = new System.Drawing.Point(873, 163);
+            this.tbTimeEx.Location = new System.Drawing.Point(873, 127);
             this.tbTimeEx.Name = "tbTimeEx";
             this.tbTimeEx.ReadOnly = true;
             this.tbTimeEx.Size = new System.Drawing.Size(100, 20);
@@ -198,7 +204,7 @@
             // 
             // tbTimeGen
             // 
-            this.tbTimeGen.Location = new System.Drawing.Point(873, 329);
+            this.tbTimeGen.Location = new System.Drawing.Point(871, 288);
             this.tbTimeGen.Name = "tbTimeGen";
             this.tbTimeGen.ReadOnly = true;
             this.tbTimeGen.Size = new System.Drawing.Size(100, 20);
@@ -215,9 +221,9 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(218, 232);
+            this.btnClear.Location = new System.Drawing.Point(218, 301);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 36);
+            this.btnClear.Size = new System.Drawing.Size(102, 36);
             this.btnClear.TabIndex = 15;
             this.btnClear.Text = "Очистить";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -371,11 +377,76 @@
             this.label12.TabIndex = 27;
             this.label12.Text = "Количество хромосом:";
             // 
+            // btnGenSolve
+            // 
+            this.btnGenSolve.Location = new System.Drawing.Point(871, 314);
+            this.btnGenSolve.Name = "btnGenSolve";
+            this.btnGenSolve.Size = new System.Drawing.Size(98, 67);
+            this.btnGenSolve.TabIndex = 28;
+            this.btnGenSolve.Text = "Решить генетическим алгоритмом";
+            this.btnGenSolve.UseVisualStyleBackColor = true;
+            this.btnGenSolve.Click += new System.EventHandler(this.btnGenSolve_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(868, 262);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(101, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Время в секундах:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(215, 117);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 13);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Элементы";
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Location = new System.Drawing.Point(218, 173);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(102, 46);
+            this.btnGenerate.TabIndex = 31;
+            this.btnGenerate.Text = "Сгенерировать";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // nudItems
+            // 
+            this.nudItems.Location = new System.Drawing.Point(218, 135);
+            this.nudItems.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudItems.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudItems.Name = "nudItems";
+            this.nudItems.Size = new System.Drawing.Size(102, 20);
+            this.nudItems.TabIndex = 32;
+            this.nudItems.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // FormSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 434);
+            this.Controls.Add(this.nudItems);
+            this.Controls.Add(this.btnGenerate);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.btnGenSolve);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.nudParentChrom);
             this.Controls.Add(this.nudMutCnt);
@@ -413,6 +484,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudChrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMutCnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudParentChrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,6 +520,11 @@
         private System.Windows.Forms.NumericUpDown nudMutCnt;
         private System.Windows.Forms.NumericUpDown nudParentChrom;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnGenSolve;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.NumericUpDown nudItems;
     }
 }
 

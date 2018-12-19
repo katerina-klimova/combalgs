@@ -13,7 +13,7 @@ namespace thirdCombSubSet
 {
     public partial class FormSet : Form
     {
-        
+        int[] items;
         public FormSet()
         {
             InitializeComponent();
@@ -36,27 +36,37 @@ namespace thirdCombSubSet
 
         private void btnDo_Click(object sender, EventArgs e)
         {
-            clearAll();
+            tbExact.Clear();
+            tbTimeEx.Clear();
+            prepareItems();
+            ExactAlgorithm exactAlg = new ExactAlgorithm();
+            int[] resEx = exactAlg.run(items);
+            output(tbExact, tbTimeEx, resEx, exactAlg.getWorkTime());
+           
+        }
+
+        private void prepareItems()
+        {
             int cnt = lbSet.Items.Count;
-            int[] items = new int[cnt];
-            for(int i = 0; i < cnt; i++)
+            items = new int[cnt];
+            for (int i = 0; i < cnt; i++)
             {
                 items[i] = Convert.ToInt32(lbSet.Items[i]);
             }
-            
+        }
+
+        private void btnGenSolve_Click(object sender, EventArgs e)
+        {
+            prepareItems();
+            tbTimeGen.Clear();
+            tbGen.Clear();
             int munCnt = (int)nudMutCnt.Value;
             if (munCnt > items.Length - 1) munCnt = 1;
             int cntParChoms = (int)nudParentChrom.Value;
             int cntChoms = (int)nudChrom.Value;
-            if (cntParChoms >= cntChoms) cntParChoms = cntChoms/2;
-
-            ExactAlgorithm exactAlg = new ExactAlgorithm();
-            GeneticAlgorithm geneticAlg = new GeneticAlgorithm(cntChoms, items, (int)nudMutation.Value, munCnt,cntParChoms);
-
-            int[] resEx = exactAlg.run(items);
+            if (cntParChoms >= cntChoms) cntParChoms = cntChoms / 2;
+            GeneticAlgorithm geneticAlg = new GeneticAlgorithm(cntChoms, items, (int)nudMutation.Value, munCnt, cntParChoms);
             int[] resGen = geneticAlg.run((int)nudSteps.Value);
-
-            output(tbExact, tbTimeEx, resEx, exactAlg.getWorkTime());
             output(tbGen, tbTimeGen, resGen, geneticAlg.getWorkTime());
         }
 
@@ -64,6 +74,17 @@ namespace thirdCombSubSet
         {
             clearAll();
             lbSet.Items.Clear();
+        }
+        
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            lbSet.Items.Clear();
+            for(int i = 0; i < nudItems.Value; i++)
+            {
+                lbSet.Items.Add(r.Next(-100, 100));
+            }
         }
 
         private void clearAll()
@@ -74,7 +95,7 @@ namespace thirdCombSubSet
             tbGen.Clear();
         }
 
-        private void output(TextBox tb,TextBox tbTime, int[] res, long time)
+        private void output(TextBox tb, TextBox tbTime, int[] res, long time)
         {
             if (res != null)
             {
@@ -89,6 +110,5 @@ namespace thirdCombSubSet
                 tb.AppendText("Решения не существует!");
             }
         }
-        
     }
 }
