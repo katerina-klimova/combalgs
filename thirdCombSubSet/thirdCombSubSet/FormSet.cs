@@ -17,6 +17,13 @@ namespace thirdCombSubSet
         public FormSet()
         {
             InitializeComponent();
+            nudChrom.Maximum = Int32.MaxValue;
+            nudElem.Maximum = Int32.MaxValue;
+            nudItems.Maximum = Int32.MaxValue;
+            nudMutation.Maximum = Int32.MaxValue;
+            nudMutCnt.Maximum = Int32.MaxValue;
+            nudParentChrom.Maximum = Int32.MaxValue;
+            nudSteps.Maximum = Int32.MaxValue;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

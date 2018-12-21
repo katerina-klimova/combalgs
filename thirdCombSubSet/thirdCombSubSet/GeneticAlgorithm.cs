@@ -122,13 +122,13 @@ namespace thirdCombSubSet
             {
                 newGeneration.Add(curGen[choosed(ver)]);
             }
-            for(int i = (cntParentChromes) ; (i < numOfChromosomes-1) && newGeneration.Count<curGen.Count; i++)
+            
+            while(newGeneration.Count < curGen.Count)
             {
-                Chromosome newChild_1 = selection(newGeneration[i-(numOfChromosomes / 2)], newGeneration[i - (numOfChromosomes / 2)+1]);
-                Chromosome newChild_2 = selection(newGeneration[i - (numOfChromosomes / 2)+1], newGeneration[i - (numOfChromosomes / 2) ]);
-                if(!newChild_1.isEmpty()) newGeneration.Add(newChild_1);
-                if (newGeneration.Count < curGen.Count && !newChild_2.isEmpty()) newGeneration.Add(newChild_2);
+                Chromosome newChild = selection(newGeneration[getRandomIndex(cntParentChromes)], newGeneration[getRandomIndex(cntParentChromes)]);
+                if (!newChild.isEmpty() && newGeneration.Count < curGen.Count) newGeneration.Add(newChild);
             }
+
             logger.log("Поколение:" + step + "до мутации \n" + toString(currentGeneraion));
             mutation(newGeneration);
             curGen = newGeneration;
@@ -198,6 +198,11 @@ namespace thirdCombSubSet
                 s += " }   ";
             }
             return s;
+        }
+
+        private int getRandomIndex(int diapazone)
+        {
+            return r.Next(diapazone);
         }
     }
 }
